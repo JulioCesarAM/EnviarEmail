@@ -34,16 +34,16 @@ public class Controller implements Initializable {
     private HBox view;
 
     @FXML
-    private GridPane gridPane;
+    private GridPane gPane;
     
     @FXML
     private VBox vBox;
     
     @FXML
-    private CheckBox conexionCheck;
+    private CheckBox checkBox;
 
     @FXML
-    private TextArea mensajeTA;
+    private TextArea TextAreaM;
 
     @FXML
     private TextField servidorTF,puertoTF,remitenteTF,destinatarioTF,asuntoTF;
@@ -52,7 +52,7 @@ public class Controller implements Initializable {
     private PasswordField contraseñaTF;
     
     @FXML
-    private Button enviarB,vaciarB,cerrarB;
+    private Button BtnEnviar,BtnVaciar,BtnCerrar;
     
 	boolean selected;
 	
@@ -64,7 +64,7 @@ public class Controller implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		selected=conexionCheck.isSelected();
+		selected=checkBox.isSelected();
 	}
 	@FXML
 	private void onEnviarButton(ActionEvent e) {
@@ -75,7 +75,7 @@ public class Controller implements Initializable {
 		model.getEmail().setSSLOnConnect(selected);
 		model.getEmail().setFrom(remitenteTF.textProperty().get());
 		model.getEmail().setSubject(asuntoTF.textProperty().get());
-		model.getEmail().setMsg(mensajeTA.textProperty().get());
+		model.getEmail().setMsg(TextAreaM.textProperty().get());
 		model.getEmail().addTo(destinatarioTF.textProperty().get());
 		model.email.send();
 		successAlert();
@@ -85,14 +85,14 @@ public class Controller implements Initializable {
 	}
 	@FXML
 	private void onVaciarButton(ActionEvent e) {
-		mensajeTA.textProperty().set("");
+		TextAreaM.textProperty().set("");
 		servidorTF.textProperty().set("");
 		puertoTF.textProperty().set("");
 		remitenteTF.textProperty().set("");
 		contraseñaTF.textProperty().set("");
 		destinatarioTF.textProperty().set("");
 		asuntoTF.textProperty().set("");
-		conexionCheck.setSelected(false); 
+		checkBox.setSelected(false); 
 	}
 	@FXML
 	private void onCerrarButton(ActionEvent e) {
