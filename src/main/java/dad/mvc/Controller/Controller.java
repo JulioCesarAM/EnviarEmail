@@ -40,7 +40,7 @@ public class Controller implements Initializable {
     private VBox vBox;
     
     @FXML
-    private CheckBox checkBox;
+    private CheckBox checkBoxP;
 
     @FXML
     private TextArea TextAreaM;
@@ -64,7 +64,7 @@ public class Controller implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		selected=checkBox.isSelected();
+		selected=checkBoxP.isSelected();
 	}
 	@FXML
 	private void onEnviarButton(ActionEvent e) {
@@ -92,7 +92,7 @@ public class Controller implements Initializable {
 		contraseñaTF.textProperty().set("");
 		destinatarioTF.textProperty().set("");
 		asuntoTF.textProperty().set("");
-		checkBox.setSelected(false); 
+		checkBoxP.setSelected(false); 
 	}
 	@FXML
 	private void onCerrarButton(ActionEvent e) {
